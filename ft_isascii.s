@@ -7,9 +7,9 @@ _ft_isascii :
 	jle			exit
 	cmp			rsi, 127
 	jge			exit
-	move byte	rax, 1
+	mov 		rax, 1
 	ret
 
 exit :
-	move byte	rax, 0
+	mov 		rax, 0
 	ret

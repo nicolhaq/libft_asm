@@ -9,5 +9,5 @@ _ft_tolower :
 	jge			exit
 	add			rsi, 32
 exit :
-	move byte	rax, rsi
+	mov 		rax, rsi
 	ret

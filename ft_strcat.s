@@ -6,16 +6,16 @@ _strcat:
 	mov		rdi,rax
 
 mvloop:
-	cmpb	0,rdi
+	cmp byte	rdi , 0
 	je		cploop
 	inc 	rdi
 	jmp		mvloop
 
 cploop:
 	movsb
-	cmpb	0,rsi
+	cmp byte	rsi ,0
 	je		end
 	jmp		cploop
 
 end:
-	ret	
+	ret
