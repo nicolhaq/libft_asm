@@ -2,30 +2,30 @@ SECTION .text
 
 global _ft_isalnum
 
-_ft_isalnum :
-	cmp			rsi, 48
-	jle			exit
-	cmp			rsi, 57
-	jge			_ft_alpha
-	mov 		rax, 1
+_ft_isalnum:
+	cmp			edi, 48
+	jl			exit
+	cmp			edi, 57
+	jg			_ft_alpha
+	mov 		eax, 1
 	ret
 
-_ft_alpha :
-	cmp			rsi, 65
-	jle			exit
-	cmp			rsi, 90
-	jge			_ft_Alpha
-	mov 		rax, 1
+_ft_alpha:
+	cmp			edi, 65
+	jl			exit
+	cmp			edi, 90
+	jg			_ft_Alpha
+	mov 		eax, 1
 	ret
 
-_ft_Alpha :
-	cmp			rsi, 97
-	jle			exit
-	cmp			rsi, 122
-	jge			exit
-	mov 		rax, 1
+_ft_Alpha:
+	cmp			edi, 97
+	jl			exit
+	cmp			edi, 122
+	jg			exit
+	mov 		eax, 1
 	ret
 
-exit :
-	mov 		rax, 0
+exit:
+	mov 		eax, 0
 	ret

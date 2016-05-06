@@ -3,13 +3,13 @@ SECTION .text
 global _ft_isprint
 
 _ft_isprint :
-	cmp			rsi, 33
-	jle			exit
-	cmp			rsi, 127
-	jge			exit
-	mov 		rax, 1
+	cmp			edi, 32
+	jl			exit
+	cmp			edi, 126
+	jg			exit
+	mov 		eax, 1
 	ret
 
 exit :
-	mov 		rax, 0
+	mov 		eax, 0
 	ret

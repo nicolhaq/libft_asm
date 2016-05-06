@@ -3,21 +3,21 @@ SECTION .text
 global _ft_isalpha
 
 _ft_isalpha :
-	cmp			rsi, 65
-	jle			exit
-	cmp			rsi, 90
-	jge			_ft_alpha2
-	mov 		rax, 1
+	cmp			edi, 65
+	jl			exit
+	cmp			edi, 90
+	jg			_ft_alpha2
+	mov 		eax, 1
 	ret
 
 _ft_alpha2 :
-	cmp			rsi, 97
-	jle			exit
-	cmp			rsi, 122
-	jge			exit
-	mov 		rax, 1
+	cmp			edi, 97
+	jl			exit
+	cmp			edi, 122
+	jg			exit
+	mov 		eax, 1
 	ret
 
 exit :
-	mov 		rax, 0
+	mov 		eax, 0
 	ret

@@ -6,7 +6,7 @@
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:08:14 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/02/26 14:44:49 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/04/19 18:29:29 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define LIBFTS_H
 # include <string.h>
 
-void	ft_bzero(char *str, size_t len);
+void	ft_bzero(void *str, size_t len);
 int		ft_isascii(char c);
 int		ft_isdigit(char c);
-int		ft_isnum(char c);
+int		ft_isalnum(char c);
 int		ft_isprint(char c);
 int		ft_isalpha(char c);
 char	*ft_strcat(char *dest, const char *src);

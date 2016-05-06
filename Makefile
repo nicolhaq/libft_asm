@@ -6,7 +6,7 @@
 #    By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 16:10:55 by nhaquet           #+#    #+#              #
-#    Updated: 2016/04/07 19:30:08 by nhaquet          ###   ########.fr        #
+#    Updated: 2016/04/19 19:04:54 by nhaquet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ $(NAME): $(OBJ)
 	@~/.brew/bin/nasm $< -f $(FORMAT)
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 

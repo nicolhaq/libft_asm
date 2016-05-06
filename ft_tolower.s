@@ -3,11 +3,11 @@ SECTION .text
 global _ft_tolower
 
 _ft_tolower :
-	cmp			rsi, 65
-	jle			exit
-	cmp			rsi, 90
-	jge			exit
-	add			rsi, 32
+	cmp			edi, 65
+	jl			exit
+	cmp			edi, 90
+	jg			exit
+	add			edi, 32
 exit :
-	mov 		rax, rsi
+	mov 		eax, edi
 	ret

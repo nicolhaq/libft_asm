@@ -1,21 +1,23 @@
 SECTION .text
 
-global _strcat
+global _ft_strcat
 
-_strcat:
-	mov		rdi,rax
+_ft_strcat:
+	mov			rax, rdi
 
 mvloop:
-	cmp byte	rdi , 0
-	je		cploop
-	inc 	rdi
-	jmp		mvloop
+	cmp byte 	[rax], 0
+	je			cploop
+	inc 		rax
+	jmp			mvloop
 
 cploop:
-	movsb
-	cmp byte	rsi ,0
-	je		end
-	jmp		cploop
+	cmp byte	[rsi], 0
+	je			end
+	mov			rax, [rsi]
+	inc			rax
+	inc			rsi
+	jmp			cploop
 
 end:
 	ret
