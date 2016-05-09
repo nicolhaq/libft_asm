@@ -1,8 +1,8 @@
 SECTION .text
 
-global _ft_tolower
+global ft_tolower
 
-_ft_tolower :
+ft_tolower :
 	cmp			edi, 65
 	jl			exit
 	cmp			edi, 90

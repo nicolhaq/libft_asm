@@ -1,8 +1,8 @@
 SECTION .text
 
-global _ft_toupper
+global ft_toupper
 
-_ft_toupper :
+ft_toupper :
 	cmp			edi, 97
 	jl			exit
 	cmp			edi, 122

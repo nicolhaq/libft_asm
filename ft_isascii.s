@@ -1,8 +1,8 @@
 SECTION .text
 
-global _ft_isascii
+global ft_isascii
 
-_ft_isascii :
+ft_isascii :
 	cmp			edi, 0
 	jl			exit
 	cmp			edi, 127

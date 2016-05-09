@@ -1,13 +1,13 @@
 SECTION .text
 
-global	_ft_bzero
+global	ft_bzero
 
-_ft_bzero :
+ft_bzero :
 	cmp			rsi, 0
 	je			exit
-	mov byte	[rdi], 0
+	mov	byte	[rdi], 0
 	dec 		rsi
 	inc			rdi
-	jmp			_ft_bzero
+	jmp			ft_bzero
 exit :
 	ret

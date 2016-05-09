@@ -6,9 +6,17 @@
 #    By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 16:10:55 by nhaquet           #+#    #+#              #
-#    Updated: 2016/04/19 19:04:54 by nhaquet          ###   ########.fr        #
+#    Updated: 2016/05/09 02:00:24 by nhaquet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Linux)
+    NFLAGS = -f elf64 #-p inc/syscall_linux.s
+else
+    NFLAGS = -f macho64 --prefix _ #-p inc/syscall_macosx.s
+endif
 
 NAME = libfts.a
 
@@ -22,26 +30,34 @@ SRC =   ft_bzero.s			\
 		ft_toupper.s		\
 		ft_strcat.s
 
-FORMAT = macho64
+#FORMAT = macho64
 
 OBJ = $(SRC:.s=.o)
+
+test: all
+
+	gcc -Wall -Wextra  -Werror test.c -L. -lfts
+	./a.out
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@echo $(UNAME)
 	@echo "\033[1;34m[*] - Compiling Libfts ...\033[00m"
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 	@echo "\033[1;32m[+] - Done.\033[00m"
 
 %.o: %.s
-	@~/.brew/bin/nasm $< -f $(FORMAT)
+	#@~/.brew/bin/
+	nasm $(NFLAGS) $< -o $@
+	#nasm $< -f $(FORMAT)
 
 clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) a.out
 
 re: fclean all
 

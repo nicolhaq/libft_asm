@@ -1,8 +1,8 @@
 SECTION .text
 
-global _ft_isdigit
+global ft_isdigit
 
-_ft_isdigit :
+ft_isdigit :
 	cmp			edi, 48
 	jl			exit
 	cmp			edi, 57

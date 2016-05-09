@@ -1,8 +1,8 @@
 SECTION .text
 
-global _ft_isprint
+global ft_isprint
 
-_ft_isprint :
+ft_isprint :
 	cmp			edi, 32
 	jl			exit
 	cmp			edi, 126

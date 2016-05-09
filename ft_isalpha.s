@@ -1,16 +1,16 @@
 SECTION .text
 
-global _ft_isalpha
+global ft_isalpha
 
-_ft_isalpha :
+ft_isalpha :
 	cmp			edi, 65
 	jl			exit
 	cmp			edi, 90
-	jg			_ft_alpha2
+	jg			ft_alpha2
 	mov 		eax, 1
 	ret
 
-_ft_alpha2 :
+ft_alpha2 :
 	cmp			edi, 97
 	jl			exit
 	cmp			edi, 122
