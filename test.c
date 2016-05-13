@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:42:06 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/05/09 01:26:45 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/05/13 21:20:58 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,25 @@ void	print_tab(char *v, char *s, int size)
 	printf("]\n");
 }
 
+int		test_strlen(void)
+{
+	char	*s = "bonjour les enfants";
+
+	printf("strlen(\"\")\n");
+	if (strlen("") != ft_strlen(""))
+	{
+		printf("strlen(\"\") = %lu\nft_strlen(\"\")%lu\n", strlen(""), ft_strlen(""));
+		return (0);
+	}
+	printf("strlen(\"%s\")\n", s);
+	if (strlen(s) != ft_strlen(s))
+	{
+		printf("strlen(\"%s\") = %lu\nft_strlen(\"%s\")%lu\n", s, strlen(""), s, ft_strlen(""));
+		return (0);
+	}
+	return (1);
+
+}
 int		test_strcat(void)
 {
 	int		i;
@@ -107,7 +126,7 @@ int		test_strcat(void)
 		}
 		i++;
 	}
-	printf(" = %s",OK);
+	printf("\n all = %s",OK);
 	return (1);
 }
 
@@ -176,6 +195,7 @@ void testIsAlnum(void)
 
 int main(void)
 {
+	test_strlen();
 	testBzero();
 	testIsAlnum();
 	test_strcat();

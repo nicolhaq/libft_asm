@@ -6,7 +6,7 @@
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:08:14 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/04/19 18:29:29 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/05/13 21:09:20 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int		ft_isalpha(char c);
 char	*ft_strcat(char *dest, const char *src);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
+size_t	ft_strlen(const char *src);
 #endif

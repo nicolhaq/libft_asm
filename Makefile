@@ -6,7 +6,7 @@
 #    By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 16:10:55 by nhaquet           #+#    #+#              #
-#    Updated: 2016/05/09 02:00:24 by nhaquet          ###   ########.fr        #
+#    Updated: 2016/05/13 20:58:29 by nhaquet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC =   ft_bzero.s			\
 		ft_isalnum.s		\
 		ft_tolower.s		\
 		ft_toupper.s		\
-		ft_strcat.s
+		ft_strcat.s			\
+		ft_strlen.s
 
 #FORMAT = macho64
 

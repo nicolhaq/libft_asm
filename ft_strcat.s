@@ -5,6 +5,7 @@ global ft_strcat
 ft_strcat:
 	push		rbx
 	mov			rbx, rdi
+	push		rdi
 
 mvloop:
 	cmp byte 	[rbx], 0
@@ -16,7 +17,7 @@ cploop:
 	cmp byte	[rsi], 0
 	je			end
 	mov			rax, [rsi]
-	mov			[rbx], al 
+	mov			[rbx], al
 	inc			rbx
 	inc			rsi
 	jmp			cploop
@@ -24,5 +25,6 @@ cploop:
 end:
 	mov byte	[rbx], 0
 	mov			rax, rdi
+	pop			rdi
 	pop			rbx
 	ret
