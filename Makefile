@@ -6,7 +6,7 @@
 #    By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 16:10:55 by nhaquet           #+#    #+#              #
-#    Updated: 2016/05/13 20:58:29 by nhaquet          ###   ########.fr        #
+#    Updated: 2016/06/17 19:25:03 by nhaquet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)
     NFLAGS = -f elf64 #-p inc/syscall_linux.s
 else
-    NFLAGS = -f macho64 --prefix _ #-p inc/syscall_macosx.s
+    NFLAGS = -f macho64 --prefix _ -p inc/syscall_macosx.s
 endif
 
 NAME = libfts.a
@@ -29,7 +29,8 @@ SRC =   ft_bzero.s			\
 		ft_tolower.s		\
 		ft_toupper.s		\
 		ft_strcat.s			\
-		ft_strlen.s
+		ft_strlen.s			\
+		ft_puts.s
 
 #FORMAT = macho64
 
