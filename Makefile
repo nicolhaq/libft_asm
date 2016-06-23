@@ -6,14 +6,14 @@
 #    By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 16:10:55 by nhaquet           #+#    #+#              #
-#    Updated: 2016/06/17 19:25:03 by nhaquet          ###   ########.fr        #
+#    Updated: 2016/06/23 20:44:29 by nhaquet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
-    NFLAGS = -f elf64 #-p inc/syscall_linux.s
+    NFLAGS = -f elf64 -p inc/syscall_linux.s
 else
     NFLAGS = -f macho64 --prefix _ -p inc/syscall_macosx.s
 endif

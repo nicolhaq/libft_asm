@@ -1,0 +1,1 @@
+ %define	WRITE       1

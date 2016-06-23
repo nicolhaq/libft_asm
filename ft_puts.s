@@ -23,14 +23,14 @@ puts:
 	mov			rsi, rdi
 	mov			edi, 1
 	mov			rdx, rax
-	mov			rax, 0x2000004
+	mov			rax, WRITE
 	syscall
 	cmp			eax, -1
 	je			error
 	lea			rsi, [rel endl]
 	mov			edi, 1
 	mov			edx, 1
-	mov			rax, 0x2000004
+	mov			rax, WRITE
 	syscall
 	mov			eax, 10
 

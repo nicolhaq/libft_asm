@@ -6,7 +6,7 @@
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:42:06 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/06/17 19:43:48 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/06/23 20:56:01 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,10 +196,8 @@ void test_puts() {
 	printf("test ft_puts:\n");
 	puts("lol");
 	puts("");
-	puts(NULL);
 	ft_puts("lol");
 	ft_puts("");
-	ft_puts(NULL);
 }
 int main(void)
 {
