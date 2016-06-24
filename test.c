@@ -6,7 +6,7 @@
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:42:06 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/06/23 20:56:01 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/06/24 19:54:25 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		test_strlen(void)
 	return (1);
 
 }
+
+
 int		test_strcat(void)
 {
 	int		i;
@@ -199,6 +201,53 @@ void test_puts() {
 	ft_puts("lol");
 	ft_puts("");
 }
+
+int	test_memset(void)
+{
+	int		i;
+	char	str1[10] = "0000000000";
+	char	str2[10] = "0000000000";
+
+	print_tab("str1", str1, 10);
+	printf("memset(str1, 'a', 10)");
+
+	memset(str1, 'a', 10);
+	if ( ft_memset(str2, 'a', 10) == str2){
+		return (0);}
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	printf("memset(str1 + 3, 'a', 1)");
+	memset(str1 + 3, 'b', 1);
+	if (ft_memset(str2 + 3, 'b', 1) == (str2 + 3))
+		return (0);
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	printf("all = %s",OK);
+	print_tab("str1", str1, 10);
+	print_tab("str2", str2, 10);
+	return (1);
+}
+
 int main(void)
 {
 	test_strlen();
@@ -206,5 +255,6 @@ int main(void)
 	testIsAlnum();
 	test_strcat();
 	test_puts();
+	test_memset();
 	return (0);
 }

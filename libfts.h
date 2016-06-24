@@ -6,7 +6,7 @@
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:08:14 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/06/17 19:24:15 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/06/24 18:20:39 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_strlen(const char *src);
 int		ft_puts(const char *s);
+void *	ft_memset(void *b, int c, size_t len);
 #endif
