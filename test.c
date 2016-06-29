@@ -6,7 +6,7 @@
 /*   By: nhaquet <nhaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:42:06 by nhaquet           #+#    #+#             */
-/*   Updated: 2016/06/24 19:54:25 by nhaquet          ###   ########.fr       */
+/*   Updated: 2016/06/29 19:45:30 by nhaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,10 +209,11 @@ int	test_memset(void)
 	char	str2[10] = "0000000000";
 
 	print_tab("str1", str1, 10);
-	printf("memset(str1, 'a', 10)");
+	printf("memset(str1, 'a', 10)\n");
 
 	memset(str1, 'a', 10);
-	if ( ft_memset(str2, 'a', 10) == str2){
+	printf("%p\n%p\n", ft_memset(str2, 'a', 10) , str2);
+	if ( ft_memset(str2, 'a', 10) != str2){
 		return (0);}
 	i = 0;
 	while (i < 10)
@@ -226,9 +227,10 @@ int	test_memset(void)
 		i++;
 	}
 	printf("= %s",OK);
-	printf("memset(str1 + 3, 'a', 1)");
+	printf("memset(str1 + 3, 'a', 1)\n");
 	memset(str1 + 3, 'b', 1);
-	if (ft_memset(str2 + 3, 'b', 1) == (str2 + 3))
+	printf("%p\n%p\n", ft_memset(str2, 'a', 10) , str2);
+	if (ft_memset(str2 + 3, 'b', 1) != (str2 + 3))
 		return (0);
 	i = 0;
 	while (i < 10)
@@ -242,19 +244,162 @@ int	test_memset(void)
 		i++;
 	}
 	printf("= %s",OK);
-	printf("all = %s",OK);
 	print_tab("str1", str1, 10);
 	print_tab("str2", str2, 10);
+	printf("all = %s",OK);
+	return (1);
+}
+int		test_memcpy(void)
+{
+	int		i;
+	char	str1[10] = "\0\0\0\0\0\0\0\0\0\0";
+	char	str2[10] = "\0\0\0\0\0\0\0\0\0\0";
+	char	*str3 = "coca cola";
+
+	print_tab("str1", str1, 10);
+	printf("memcpy(str1, str1, 5)");
+	memcpy(str1, str1, 5);
+	if (ft_memcpy(str2, str2, 5) != str2)
+		return (0);
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	printf("memcpy(str1 + 2, \"coca cola\", 3)");
+	memcpy(str1 + 2, str3, 3);
+	if (ft_memcpy(str2 + 2, str3, 3) != str2 + 2)
+		return (0);
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	printf("memcpy(str1, \"coca cola\", 4)");
+	memcpy(str1, str3, 4);
+	if (ft_memcpy(str2, str3, 4) != str2)
+		return (0);
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	printf("memcpy(str1 + 2, \"coca cola\", 5)");
+	memcpy(str1 + 2, str3, 5);
+	if (ft_memcpy(str2 + 2, str3 , 5) != str2 + 2)
+		return (0);
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	printf("memcpy(str1, \"coca cola\", 10)");
+	memcpy(str1, str3, 10);
+	if (ft_memcpy(str2, str3 , 10) != str2)
+		return (0);
+	i = 0;
+	while (i < 10)
+	{
+		if (str1[i] != str2[i])
+		{
+			print_tab("str1", str1, 10);
+			print_tab("str2", str2, 10);
+			return (0);
+		}
+		i++;
+	}
+	printf("= %s",OK);
+	print_tab("str1", str1, 10);
+	print_tab("str2", str2, 10);
+	printf("all= %s",OK);
+	return (1);
+}
+
+int		test_strdup(void)
+{
+	int		i;
+	char	*s = "test du bzero";
+	char	*s1;
+	char	*s2;
+
+	printf("strdup(\"\")");
+	s1 = strdup("");
+	s2 = ft_strdup("");
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	if (s1[i] != s2[i])
+	{
+		printf("strdup(\"\") = %s\nft_strdup(\"\")%s\n", s1, s2);
+		free(s1);
+		free(s2);
+		return (0);
+	}
+	free(s1);
+	free(s2);
+	printf("= %s",OK);
+	printf("strdup(\"%s\")", s);
+	s1 = strdup(s);
+	s2 = ft_strdup(s);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	if (s1[i] != s2[i])
+	{
+		printf("strdup(\"\") = %s\nft_strdup(\"\")%s\n", s1, s2);
+		free(s1);
+		free(s2);
+		return (0);
+	}
+	free(s1);
+	free(s2);
+	printf("= %s",OK);
 	return (1);
 }
 
 int main(void)
 {
-	test_strlen();
+	int		i;
+	i = 0;
+	i = i + test_strlen();
 	testBzero();
 	testIsAlnum();
-	test_strcat();
+	i = i + test_strcat();
 	test_puts();
-	test_memset();
+	i = i + test_memset();
+	i = i + test_memcpy();
+	i = i + test_strdup();
+	if(i == 5)
+		printf("all test %s",OK);
+	else
+		printf("%s",KO);
 	return (0);
 }
